@@ -1,9 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&family=Poppins:wght@300;400;500;600;700;800&display=swap');
 
 :root {
-    --color-primary: #7598e3;
-    --color-danger: #ff7782;
-    --color-success: #41f1b6;
+    --color-primary: #42A5F5;
+    --color-danger: #EF5350;
+    --color-success: #9CCC65;
     --color-warning: #ffbb55;
     --color-white: #fff;
     --color-info-dark: #7d8da1;
@@ -21,6 +21,15 @@
     --card-padding: 1.8rem;
     --padding-1: 1.2rem;
     --box-shadow: 0 2rem 3rem var(--color-shadow)
+}
+
+.dark-theme {
+    --color-background: #181a1e;
+    --color-white: #202528;
+    --color-dark: #edeffd;
+    --color-dark-variant: #a3bdcc;
+    --color-light: rgba(0, 0, 0, 0.4);
+    --box-shadow: 0 2rem 3rem var(--color-light);
 }
 
 html {
@@ -42,19 +51,22 @@ body {
     color: var(--color-dark);
     width: 100vw;
     height: 100vh;
+    padding: 2rem;
     font-family: poppins, sans-serif;
     font-size: 0.88rem;
-    background: var(--color-background);
+    background: var(--color-white);
     user-select: none;
-    /* overflow: hidden; */
 }
 
 .container {
+    width: 100%;
+    height: 100%;
+    background-color: var(--color-background);
+    border-radius: var(--border-radius-2);
     display: grid;
-    width: 96%;
-    margin: 0 auto;
     gap: 1.8rem;
-    grid-template-columns: 14rem auto 23rem;
+    grid-template-columns: 14rem auto 25rem;
+    overflow: scroll;
 }
 
 a {
@@ -111,25 +123,27 @@ b {
 }
 
 .primary {
-    color: var(--color-primary);
+    color: var(--color-primary) !important;
 }
 
 .danger {
-    color: var(--color-danger);
+    color: var(--color-danger) !important;
 }
 
 .success {
-    color: var(--color-success);
+    color: var(--color-success) !important;
 }
 
 .warning {
-    color: var(--color-warning);
+    color: var(--color-warning) !important;
 }
 
 /* Logo section */
 
 aside {
-    height: 100vh;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
 }
 
 aside .top {
@@ -137,11 +151,14 @@ aside .top {
     align-items: center;
     justify-content: space-between;
     margin-top: 1.4rem;
+    padding-left: 2rem;
+    padding-right: 1rem;
 }
 
 aside .logo {
     display: flex;
     gap: 0.3rem;
+    cursor: pointer;
 }
 
 aside .logo img {
@@ -150,16 +167,17 @@ aside .logo img {
 }
 
 aside .top .close-btn {
+    /* display: flex; */
     display: none;
+    cursor: pointer;
 }
 
 /* Sidebar */
 aside .sidebar {
     display: flex;
     flex-direction: column;
-    height: 86vh;
-    position: relative;
-    top: 3rem;
+    margin-top: 3rem;
+    flex-grow: 1;
 }
 
 aside h3 {
@@ -220,6 +238,10 @@ aside .sidebar a:hover span {
 
 main {
     margin-top: 1.4rem;
+}
+
+main > h1 {
+    line-height: 1;
 }
 
 main .date {
@@ -365,15 +387,24 @@ main .recent-orders table tbody td {
     color: var(--color-dark-variant);
 }
 
+main .recent-orders table tbody td:nth-of-type(5) {
+    cursor: pointer;
+}
+
 main .recent-orders table tbody tr:last-child td{
     border: none;
 }
 
-main .recent-orders a {
+main .recent-orders button {
+    background-color: transparent;
+    color: var(--color-primary);
     text-align: center;
     display: block;
     margin: 1rem auto;
-    color: var(--color-primary);
+    border: 2px dashed var(--color-primary);
+    border-radius: var(--border-radius-1);
+    padding: 0.5rem 1rem;
+    cursor: pointer;
 }
 
 /* Right Section */
@@ -381,6 +412,7 @@ main .recent-orders a {
 /* Top */
 .right {
     margin-top: 1.4rem;
+    padding-right: 2rem;
 }
 
 .right .top {
@@ -421,8 +453,9 @@ main .recent-orders a {
 
 .right .top .profile {
     display: flex;
-    gap: 2rem;
+    gap: 1rem;
     text-align: right;
+    cursor: pointer;
 }
 
 /* Recent Updates */
@@ -502,21 +535,165 @@ main .recent-orders a {
     background: var(--color-success);
 }
 
-.right .sales-analytics .add-product{
+.right .sales-analytics .add-panel{
     background-color: transparent;
     border: 2px dashed var(--color-primary);
     color: var(--color-primary);
     display: flex;
     align-items: center;
     justify-content: center;
+    cursor: pointer;
 }
 
-.right .sales-analytics .add-product div {
+.right .sales-analytics .add-panel div {
     display: flex;
     align-items: center;
     gap: 0.6rem;
 }
 
-right .sales-analytics .add-product div h3 {
+right .sales-analytics .add-panel div h3 {
     font-weight: 600;
+}
+
+/*Media Queries*/
+@media only screen and (max-width: 1400px) {
+    .container {
+        grid-template-columns: 5rem auto 25rem;
+    }
+
+    aside .logo h2 {
+        display: none;
+    }
+
+    aside .sidebar h3 {
+        display: none;
+    }
+
+    main .insights {
+        grid-template-columns: 1fr;
+        gap: 0;
+    }
+}
+
+@media only screen and (max-width: 1050px) {
+    main {
+        position: relative;
+    }
+
+    aside .sidebar a:last-child {
+        margin-top: 0;
+        margin-bottom: 0;
+    }
+
+    main .recent-orders {
+        position: absolute;
+        width: 80vw;
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    body {
+        padding: 0;
+    }
+
+    .container {
+        border-radius: 0;
+        grid-template-columns: 1fr;
+    }
+
+    aside {
+        display: none;
+        position: fixed;
+        left: -100%;
+        width: 18rem;
+        z-index: 10;
+        background: var(--color-white);
+        box-shadow: var(--box-shadow);
+        animation: slideIn 0.3s ease forwards;
+    }
+
+    @keyframes slideIn {
+        to {
+            left: 0;
+        }
+    }
+
+    aside .logo h2 {
+        display: inline;
+    }
+
+    aside .sidebar h3 {
+        display: inline;
+    }
+
+    aside .top .close-btn {
+        display: inline-block;
+    }
+
+    main {
+        margin-top: 6rem;
+        padding: 0 1rem;
+        width: 100vw;
+    }
+
+    main .recent-orders {
+        position: relative;
+        margin: 3rem 0 0 0;
+        width: 100%;
+    }
+
+    main .recent-orders table {
+        width: 100%;
+        margin: 0;
+    }
+
+    main .recent-orders table th:nth-of-type(2) {
+        display: none;
+    }
+
+    main .recent-orders table td:nth-of-type(2) {
+        display: none;
+    }
+
+    .right {
+        padding: 0 1rem;
+        margin: 0 auto;
+    }
+
+    .right .top {
+        position: fixed;
+        top: 0;
+        left: 0;
+        align-items: center;
+        padding: 0 0.8rem;
+        height: 4.6rem;
+        background: var(--color-white);
+        width: 100%;
+        margin: 0;
+        z-index: 5;
+        box-shadow: var(--box-shadow);
+        gap: 1rem;
+    }
+
+    .right .profile .info {
+        display: none;
+    }
+
+    .right .top button {
+        display: flex;
+        background-color: transparent;
+        cursor: pointer;
+        margin-right: auto;
+    }
+
+    .right .top button span {
+        color: var(--color-dark);
+        font-size: 2rem;
+    }
+}
+
+@media only screen and (max-width: 380px) {
+    main .recent-orders table {
+        font-size: 0.7rem;
+    }
 }

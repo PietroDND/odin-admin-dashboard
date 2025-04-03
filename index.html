@@ -7,8 +7,9 @@
     <link rel="stylesheet" href="assets/css/styles.css">
     <!-- Material Icons-->
     <link href="https://fonts.googleapis.com/icon?family=Material+Symbols+Sharp" rel="stylesheet">
+    <script src="assets/js/index.js" type="module"></script>
 </head>
-<body>
+<body class="dark-theme">
     <div class="container">
         <!--SIDEBAR CONTENT-->
         <aside>
@@ -137,45 +138,9 @@
                             <th></th>
                         </tr>
                     </thead>
-                    <tbody>
-                        <tr>
-                            <td>Foldable Mini Drone</td>
-                            <td>85631</td>
-                            <td>Due</td>
-                            <td class="warning">Pending</td>
-                            <td class="primary">Details</td>
-                        </tr>
-                        <tr>
-                            <td>Foldable Mini Drone</td>
-                            <td>85631</td>
-                            <td>Due</td>
-                            <td class="warning">Pending</td>
-                            <td class="primary">Details</td>
-                        </tr>
-                        <tr>
-                            <td>Foldable Mini Drone</td>
-                            <td>85631</td>
-                            <td>Due</td>
-                            <td class="warning">Pending</td>
-                            <td class="primary">Details</td>
-                        </tr>
-                        <tr>
-                            <td>Foldable Mini Drone</td>
-                            <td>85631</td>
-                            <td>Due</td>
-                            <td class="warning">Pending</td>
-                            <td class="primary">Details</td>
-                        </tr>
-                        <tr>
-                            <td>Foldable Mini Drone</td>
-                            <td>85631</td>
-                            <td>Due</td>
-                            <td class="warning">Pending</td>
-                            <td class="primary">Details</td>
-                        </tr>
-                    </tbody>
+                    <tbody></tbody>
                 </table>
-                <a href="">Show All</a>
+                <button id="load-more-btn">Show More...</button>
             </div>
         </main>
         <div class="right">
@@ -184,9 +149,9 @@
                 <button id="menu-btn">
                     <span class="material-symbols-sharp">menu</span>
                 </button>
-                <div class="theme-toggler">
-                    <span class="material-symbols-sharp active">light_mode</span>
-                    <span class="material-symbols-sharp">dark_mode</span>
+                <div class="theme-toggler" id="theme-toggler">
+                    <span class="material-symbols-sharp">light_mode</span>
+                    <span class="material-symbols-sharp active">dark_mode</span>
                 </div>
                 <div class="profile">
                     <div class="info">
@@ -273,10 +238,10 @@
                         <h3>849</h3>
                     </div>
                 </div>
-                <div class="item add-product">
+                <div class="item add-panel">
                     <div>
                         <span class="material-symbols-sharp">add</span>
-                        <h3>Add Product</h3>
+                        <h3>Add Panel</h3>
                     </div>
                 </div>
             </div>
