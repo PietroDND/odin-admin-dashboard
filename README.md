@@ -1,2 +1,2 @@
 # odin-admin-dashboard
-Admin dashboard for a beat selling service called Soundwavez, written in HTML, CSS and JavaScript.
+A simple admin dashboard for monitoring sales of an online store, built using HTML, CSS, and JavaScript without relying on any frameworks.
